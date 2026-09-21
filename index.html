@@ -8,9 +8,9 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Siete flores amarillas girando en una galaxia, con un mensaje en cada una.">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="es_AR">
+<meta property="og:locale" content="es_EC">
 <meta property="og:title" content="Jardín Galáctico">
-<meta property="og:description" content="Siete flores amarillas, un mensaje en cada una. Tocá para abrirlas.">
+<meta property="og:description" content="Siete flores amarillas, un mensaje en cada una. Toque para abrirlas.">
 <meta property="og:image" content="https://dilanm2002.github.io/flores-amarillas/preview.png">
 <meta property="og:url" content="https://dilanm2002.github.io/flores-amarillas/">
 <meta name="twitter:card" content="summary_large_image">
@@ -251,7 +251,7 @@ dialog.poly[open] {
 
   <header class="top">
     <p class="eyebrow">Día de las flores amarillas</p>
-    <h1 class="title">Para <span id="who">vos</span></h1>
+    <h1 class="title">Para <span id="who">usted</span></h1>
     <p class="sub">Siete flores amarillas giran en esta galaxia. Cada una guarda un mensaje.</p>
   </header>
 
@@ -259,8 +259,8 @@ dialog.poly[open] {
 
   <footer class="bottom">
     <div class="dots" id="dots" role="img"></div>
-    <p id="hint" aria-live="polite">Tocá una flor para abrirla</p>
-    <p class="tip" id="tip">Tocá el espacio para dejar estrellas · arrastrá para girar la galaxia</p>
+    <p id="hint" aria-live="polite">Toque una flor para abrirla</p>
+    <p class="tip" id="tip">Toque el espacio para dejar estrellas · arrastre para girar la galaxia</p>
     <button class="again" id="again" type="button" hidden>Ver mi sorpresa otra vez</button>
   </footer>
 
@@ -298,7 +298,7 @@ dialog.poly[open] {
     <p class="kicker">Ramo completo</p>
     <h2 id="fTitle">Feliz Día de las Flores Amarillas</h2>
     <div class="bouquet" id="bouquet" aria-hidden="true"></div>
-    <p id="fMsg">Gracias por dejarme conocerte. Ojalá esta sea la primera de muchas primaveras, charlas y risas. Y la galaxia queda acá para cuando quieras volver a mirarla.</p>
+    <p id="fMsg">Gracias por dejarme conocerla. Ojalá este detalle le haya sacado una sonrisa. La galaxia queda aquí para cuando quiera volver a mirarla.</p>
     <p class="sign" id="fSign" hidden></p>
     <div class="actions">
       <button class="btn primary" id="fBack" type="button">Volver a la galaxia</button>
@@ -310,7 +310,7 @@ dialog.poly[open] {
 (() => {
   'use strict';
 
-  /* ===== Personalizá acá (o con ?para=Nombre&de=Nombre en el enlace) ===== */
+  /* ===== Personalice aquí (o con ?para=Nombre&de=Nombre en el enlace) ===== */
   const CONFIG = { para: 'Andrea', de: '' };
 
   const $ = (s) => document.querySelector(s);
@@ -331,25 +331,25 @@ dialog.poly[open] {
   const FLOWERS = [
     { kind: 'rose', name: 'Rosa amarilla', meaning: 'Amistad', ring: 1, phase: 1.5, seed: 11, glow: 'rgba(246,200,70,.9)',
       pal: { d: '#8f5504', m: '#e8a915', l: '#f8d660', h: '#fff4b8' },
-      msg: 'Hoy se regalan flores amarillas para desearle cosas lindas a alguien, y esta rosa es por la amistad. Hace poco que nos conocemos, pero ya tengo claro que la tuya vale la pena.' },
+      msg: 'Hoy se regalan flores amarillas para desearle cosas lindas a alguien, y esta rosa es por la amistad. Hace poco que nos conocemos, pero ya tengo claro que la suya es de las que valen la pena.' },
     { kind: 'sunflower', name: 'Girasol', meaning: 'Alegría', ring: 2, phase: 2.0, seed: 23, glow: 'rgba(255,190,40,.9)',
       pal: { d: '#a86500', m: '#f2b90f', l: '#ffd83a', h: '#fff2a0' },
-      msg: 'Los girasoles siempre buscan la luz. Vos tenés esa buena onda que contagia y hace que cualquier charla se sienta más liviana. Gracias por eso.' },
-    { kind: 'narcissus', name: 'Narciso', meaning: 'Renovación', ring: 0, phase: 0.4, seed: 37, glow: 'rgba(255,235,120,.85)',
+      msg: 'Los girasoles siempre buscan la luz. Usted tiene esa buena onda que contagia y hace que cualquier charla se sienta más liviana. Gracias por eso.' },
+    { kind: 'narcissus', name: 'Narciso', meaning: 'Comienzos', ring: 0, phase: 0.4, seed: 37, glow: 'rgba(255,235,120,.85)',
       pal: { d: '#b8920a', m: '#f3da62', l: '#fff3a8', h: '#ffffff' },
-      msg: 'El narciso es de las primeras flores que aparecen cuando llega la primavera. Ojalá esta estación te traiga cosas nuevas y lindas, y muchas para estrenar.' },
+      msg: 'El narciso simboliza los buenos comienzos. Ojalá lo que venga sea bonito y este año le traiga cosas nuevas y lindas.' },
     { kind: 'daisy', name: 'Margarita', meaning: 'Sencillez', ring: 2, phase: 2.0 + TAU / 3, seed: 41, glow: 'rgba(255,225,80,.85)',
       pal: { d: '#c99700', m: '#ffd93d', l: '#fff08a', h: '#fffbd0' },
-      msg: 'A una margarita le alcanza con estar para alegrar un lugar. Con vos pasa algo parecido: en pocas semanas ya se nota lo bien que se está a tu lado.' },
+      msg: 'A una margarita le alcanza con estar para alegrar un lugar. Con usted pasa algo parecido: en pocas semanas ya se nota lo bien que se siente su compañía.' },
     { kind: 'tulip', name: 'Tulipán amarillo', meaning: 'Optimismo', ring: 1, phase: 1.5 + Math.PI, seed: 53, glow: 'rgba(255,200,60,.9)',
       pal: { d: '#a86200', m: '#f6c21c', l: '#ffe066', h: '#fff6b8' },
-      msg: 'Al tulipán amarillo se lo asocia con los pensamientos alegres. Ojalá esta primavera te encuentre con la cabeza llena de planes lindos y motivos para sonreír.' },
+      msg: 'Al tulipán amarillo se lo asocia con los pensamientos alegres. Ojalá usted tenga la cabeza llena de planes lindos y muchos motivos para sonreír.' },
     { kind: 'mimosa', name: 'Mimosa', meaning: 'Gratitud', ring: 2, phase: 2.0 + 2 * TAU / 3, seed: 67, glow: 'rgba(255,215,40,.9)',
       pal: { d: '#b58400', m: '#ffcf1a', l: '#ffe84d', h: '#fff9b0' },
-      msg: 'La mimosa florece en bolitas de sol. Gracias por la buena onda de estas semanas: hay personas con las que todo se siente fácil, y con vos fue así.' },
+      msg: 'La mimosa florece en bolitas de sol. Gracias por la buena onda de estas semanas: hay personas con las que todo se siente fácil, y con usted fue así.' },
     { kind: 'marigold', name: 'Caléndula', meaning: 'Buena energía', ring: 0, phase: 0.4 + Math.PI, seed: 79, glow: 'rgba(255,140,30,.9)',
       pal: { d: '#a23f00', m: '#f58a0a', l: '#ffc033', h: '#ffe08a' },
-      msg: 'Dicen que la caléndula atrae buena energía. Te la dejo con todo el ramo para que tengas una primavera de días lindos, risas y canciones perfectas. ¡Feliz Día de las Flores Amarillas!' },
+      msg: 'Dicen que la caléndula atrae buena energía. Se la dejo con todo el ramo para que tenga días lindos, risas y canciones perfectas. ¡Feliz Día de las Flores Amarillas!' },
   ];
   FLOWERS.forEach((r) => { for (const k of Object.keys(r.pal)) r.pal[k] = hex(r.pal[k]); });
 
@@ -617,7 +617,7 @@ dialog.poly[open] {
   const opened = new Set();
   let current = -1, finaleShown = false;
 
-  $('#who').textContent = para || 'vos';
+  $('#who').textContent = para || 'usted';
   if (de) { const s = $('#fSign'); s.textContent = '— ' + de; s.hidden = false; }
   if (para) $('#fTitle').textContent = 'Feliz Día de las Flores Amarillas, ' + para;
 
@@ -1025,8 +1025,8 @@ dialog.poly[open] {
     const n = opened.size, all = n === FLOWERS.length;
     dots.forEach((d, i) => d.classList.toggle('on', i < n));
     dotsBox.setAttribute('aria-label', `${n} de ${FLOWERS.length} flores abiertas`);
-    $('#hint').textContent = all ? 'Abriste todas las flores'
-      : n ? `${n} de ${FLOWERS.length} flores abiertas` : 'Tocá una flor para abrirla';
+    $('#hint').textContent = all ? 'Abrió todas las flores'
+      : n ? `${n} de ${FLOWERS.length} flores abiertas` : 'Toque una flor para abrirla';
     $('#again').hidden = !all;
   }
 
